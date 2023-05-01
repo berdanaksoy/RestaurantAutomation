@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace VTDGP_donem_projesi_berdanaksoy
 {
@@ -16,11 +17,6 @@ namespace VTDGP_donem_projesi_berdanaksoy
         public anaEkran()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         SqlConnection con;
@@ -34,31 +30,52 @@ namespace VTDGP_donem_projesi_berdanaksoy
             this.Hide();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            string sorgu = "SELECT * FROM kullaniciGirisi where kullaniciAdi=@user AND sifre=@pass";
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            menu menu = new menu();
+            menu.Show();
+            this.Hide();
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            button5.Enabled = false;
+            comboBox1.Enabled = false;
+
+            string sorgu = "update masalar set musaitlik = 'dolu' where masaID = @masaID";
             cmd = new SqlCommand(sorgu, con);
-            cmd.Parameters.AddWithValue("@user", textBox1.Text);
-            cmd.Parameters.AddWithValue("@pass", textBox2.Text);
+            cmd.Parameters.AddWithValue("@masaID", comboBox1.SelectedIndex+1);
             con.Open();
-            dr = cmd.ExecuteReader();
-            if (dr.Read())
-            {
-                kullaniciEkrani kullaniciEkrani = new kullaniciEkrani();
-                kullaniciEkrani.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Kullanıcı adını ve şifrenizi kontrol ediniz.");
-            }
+            cmd.ExecuteNonQuery();
             con.Close();
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void anaEkran_Load(object sender, EventArgs e)
         {
+            MessageBox.Show("Lutfen once masanızı seciniz!");
 
+            string sorgu = "SELECT * FROM masalar where musaitlik=@musaitlik";
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            cmd = new SqlCommand(sorgu, con);
+            cmd.Parameters.AddWithValue("@musaitlik", "bos");
+            con.Open();
+            dr = cmd.ExecuteReader();
+            while(dr.Read())
+            {
+                comboBox1.Items.Add("MASA "+dr["masaID"]);
+            }
+            con.Close();
         }
     }
 }
