@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace VTDGP_donem_projesi_berdanaksoy
 {
@@ -16,6 +17,10 @@ namespace VTDGP_donem_projesi_berdanaksoy
         {
             InitializeComponent();
         }
+
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataReader dr;
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -31,7 +36,22 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            string sorgu = "SELECT * FROM yoneticiGirisi where yoneticiAdi=@user AND sifre=@pass";
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            cmd = new SqlCommand(sorgu, con);
+            cmd.Parameters.AddWithValue("@user", textBox1.Text);
+            cmd.Parameters.AddWithValue("@pass", textBox2.Text);
+            con.Open();
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                
+            }
+            else
+            {
+                MessageBox.Show("Kullanıcı adını ve şifrenizi kontrol ediniz.");
+            }
+            con.Close();
         }
     }
 }
