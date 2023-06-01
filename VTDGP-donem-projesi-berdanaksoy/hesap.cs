@@ -22,8 +22,13 @@ namespace VTDGP_donem_projesi_berdanaksoy
             anaEkran anaEkran = new anaEkran();
             anaEkran.Show();
             this.Hide();
+
             anaEkran.comboBox1.Enabled = false;
             anaEkran.button5.Enabled = false;
+
+            anaEkran.button2.Visible = true;
+            anaEkran.button3.Visible = true;
+            anaEkran.button4.Visible = true;
         }
     }
 }

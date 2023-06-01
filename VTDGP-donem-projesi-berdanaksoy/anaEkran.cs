@@ -32,12 +32,16 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            hesap hesap = new hesap();
+            hesap.Show();
+            this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            siparis siparis = new siparis();
+            siparis.Show();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -45,7 +49,6 @@ namespace VTDGP_donem_projesi_berdanaksoy
             menu menu = new menu();
             menu.Show();
             this.Hide();
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -53,9 +56,13 @@ namespace VTDGP_donem_projesi_berdanaksoy
             button5.Enabled = false;
             comboBox1.Enabled = false;
 
+            button2.Visible = true;
+            button3.Visible = true;
+            button4.Visible = true;
+
             string sorgu = "update masalar set musaitlik = 'dolu' where masaID = @masaID";
             cmd = new SqlCommand(sorgu, con);
-            cmd.Parameters.AddWithValue("@masaID", comboBox1.SelectedIndex+1);
+            cmd.Parameters.AddWithValue("@masaID", comboBox1.SelectedItem);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -63,8 +70,6 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
         private void anaEkran_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Lutfen once masanızı seciniz!");
-
             string sorgu = "SELECT * FROM masalar where musaitlik=@musaitlik";
             con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
             cmd = new SqlCommand(sorgu, con);
@@ -73,9 +78,23 @@ namespace VTDGP_donem_projesi_berdanaksoy
             dr = cmd.ExecuteReader();
             while(dr.Read())
             {
-                comboBox1.Items.Add("MASA "+dr["masaID"]);
+                comboBox1.Items.Add(dr["masaID"]);
             }
             con.Close();
+
+            button5.Enabled=false;
+        }
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            button5.Enabled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
+  
 }
