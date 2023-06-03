@@ -33,5 +33,33 @@ namespace VTDGP_donem_projesi_berdanaksoy
         {
             Application.Exit();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            calisanlar calisanlar = new calisanlar();
+            calisanlar.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            siparisler siparisler = new siparisler();
+            siparisler.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            yoneticiDuzenlemeEkrani yoneticiDuzenlemeEkrani = new yoneticiDuzenlemeEkrani();
+            yoneticiDuzenlemeEkrani.Show();
+            this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            menuDuzenlemeEkrani menuDuzenlemeEkrani = new menuDuzenlemeEkrani();
+            menuDuzenlemeEkrani.Show();
+            this.Hide();
+        }
     }
 }
