@@ -52,6 +52,12 @@
     <Compile Include="anaEkran.Designer.cs">
       <DependentUpon>anaEkran.cs</DependentUpon>
     </Compile>
+    <Compile Include="calisanlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="calisanlar.Designer.cs">
+      <DependentUpon>calisanlar.cs</DependentUpon>
+    </Compile>
     <Compile Include="hesap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,18 @@
     <Compile Include="siparis.Designer.cs">
       <DependentUpon>siparis.cs</DependentUpon>
     </Compile>
+    <Compile Include="siparisler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="siparisler.Designer.cs">
+      <DependentUpon>siparisler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="yoneticiDuzenlemeEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="yoneticiDuzenlemeEkrani.Designer.cs">
+      <DependentUpon>yoneticiDuzenlemeEkrani.cs</DependentUpon>
+    </Compile>
     <Compile Include="yoneticiEkrani.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="anaEkran.resx">
       <DependentUpon>anaEkran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="calisanlar.resx">
+      <DependentUpon>calisanlar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="hesap.resx">
       <DependentUpon>hesap.cs</DependentUpon>
@@ -104,6 +125,12 @@
     </Compile>
     <EmbeddedResource Include="siparis.resx">
       <DependentUpon>siparis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="siparisler.resx">
+      <DependentUpon>siparisler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="yoneticiDuzenlemeEkrani.resx">
+      <DependentUpon>yoneticiDuzenlemeEkrani.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="yoneticiEkrani.resx">
       <DependentUpon>yoneticiEkrani.cs</DependentUpon>

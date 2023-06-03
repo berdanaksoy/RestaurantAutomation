@@ -68,24 +68,6 @@ namespace VTDGP_donem_projesi_berdanaksoy
             con.Close();
         }
 
-        private void anaEkran_Load(object sender, EventArgs e)
-        {
-            string sorgu = "SELECT * FROM masalar where musaitlik=@musaitlik";
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-            cmd = new SqlCommand(sorgu, con);
-            cmd.Parameters.AddWithValue("@musaitlik", "bos");
-            con.Open();
-            dr = cmd.ExecuteReader();
-            while(dr.Read())
-            {
-                comboBox1.Items.Add(dr["masaID"]);
-            }
-            con.Close();
-
-            button5.Enabled=false;
-        }
-
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             button5.Enabled = true;
@@ -94,6 +76,23 @@ namespace VTDGP_donem_projesi_berdanaksoy
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void anaEkran_Shown(object sender, EventArgs e)
+        {
+            string sorgu = "SELECT * FROM masalar where musaitlik=@musaitlik";
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            cmd = new SqlCommand(sorgu, con);
+            cmd.Parameters.AddWithValue("@musaitlik", "bos");
+            con.Open();
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBox1.Items.Add(dr["masaID"]);
+            }
+            con.Close();
+
+            button5.Enabled = false;
         }
     }
   
