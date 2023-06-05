@@ -23,6 +23,17 @@ namespace VTDGP_donem_projesi_berdanaksoy
         SqlDataReader dr;
         SqlDataAdapter da;
 
+        public void dataGuncelle()
+        {
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            con.Open();
+            da = new SqlDataAdapter("SELECT * FROM menu order by urunTipi", con);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];
+            con.Close();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             yoneticiEkrani yoneticiEkrani = new yoneticiEkrani();
@@ -32,13 +43,7 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
         private void menuDuzenlemeEkrani_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-            con.Open();
-            da = new SqlDataAdapter("SELECT * FROM menu", con);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
-            con.Close();
+            dataGuncelle();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,12 +53,12 @@ namespace VTDGP_donem_projesi_berdanaksoy
             cmd = new SqlCommand("delete from menu where urunID = @urunID",con);
             cmd.Parameters.AddWithValue("urunID",int.Parse(textBox4.Text));
             cmd.ExecuteNonQuery();
-
-            da = new SqlDataAdapter("SELECT * FROM menu", con);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
             con.Close();
+
+            dataGuncelle();
+
+            menu menu = new menu();
+            menu.dataGuncelle();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -70,12 +75,9 @@ namespace VTDGP_donem_projesi_berdanaksoy
                         cmd.Parameters.AddWithValue("fiyati", int.Parse(textBox2.Text));
                         cmd.Parameters.AddWithValue("urunTipi", textBox3.Text);
                         cmd.ExecuteNonQuery();
-
-                        da = new SqlDataAdapter("SELECT * FROM menu", con);
-                        DataSet ds = new DataSet();
-                        da.Fill(ds);
-                        dataGridView1.DataSource = ds.Tables[0];
                         con.Close();
+
+                        dataGuncelle();
                     }
                     else
                     {
@@ -101,17 +103,6 @@ namespace VTDGP_donem_projesi_berdanaksoy
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar);    //sayı engelleme
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-            con.Open();
-            da = new SqlDataAdapter("SELECT * FROM menu where siparisAdi=@siparisAdi", con);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
-            con.Close();
         }
     }
 }

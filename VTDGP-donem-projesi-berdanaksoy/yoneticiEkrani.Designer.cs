@@ -65,19 +65,27 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(416, 221);
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button3.Location = new System.Drawing.Point(207, 216);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(169, 154);
+            this.button3.Size = new System.Drawing.Size(200, 200);
             this.button3.TabIndex = 8;
             this.button3.Text = "Calisanlar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(591, 221);
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button4.Location = new System.Drawing.Point(413, 216);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(169, 140);
+            this.button4.Size = new System.Drawing.Size(200, 200);
             this.button4.TabIndex = 9;
             this.button4.Text = "Siparisler";
             this.button4.UseVisualStyleBackColor = true;
@@ -85,9 +93,12 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(800, 228);
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button5.Location = new System.Drawing.Point(825, 216);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(185, 147);
+            this.button5.Size = new System.Drawing.Size(200, 200);
             this.button5.TabIndex = 10;
             this.button5.Text = "Yonetici Duzenleme";
             this.button5.UseVisualStyleBackColor = true;
@@ -95,12 +106,17 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(619, 381);
+            this.button6.BackColor = System.Drawing.Color.Black;
+            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button6.Location = new System.Drawing.Point(619, 216);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(187, 133);
+            this.button6.Size = new System.Drawing.Size(200, 200);
             this.button6.TabIndex = 11;
             this.button6.Text = "Menu Duzenleme";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // yoneticiEkrani
@@ -128,9 +144,9 @@
 
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        public System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button button5;
     }
 }

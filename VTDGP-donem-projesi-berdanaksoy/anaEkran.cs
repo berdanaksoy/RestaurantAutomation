@@ -23,6 +23,8 @@ namespace VTDGP_donem_projesi_berdanaksoy
         SqlCommand cmd;
         SqlDataReader dr;
 
+        public static string transferBilgi;
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             yoneticiGirisEkranı yoneticiEkranı = new yoneticiGirisEkranı();
@@ -51,6 +53,7 @@ namespace VTDGP_donem_projesi_berdanaksoy
             this.Hide();
         }
 
+
         private void button5_Click(object sender, EventArgs e)
         {
             button5.Enabled = false;
@@ -61,11 +64,14 @@ namespace VTDGP_donem_projesi_berdanaksoy
             button4.Visible = true;
 
             string sorgu = "update masalar set musaitlik = 'dolu' where masaID = @masaID";
+            transferBilgi = comboBox1.Text;
             cmd = new SqlCommand(sorgu, con);
             cmd.Parameters.AddWithValue("@masaID", comboBox1.SelectedItem);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
+
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

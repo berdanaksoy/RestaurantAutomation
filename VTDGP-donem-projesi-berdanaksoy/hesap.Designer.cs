@@ -55,7 +55,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(338, 91);
+            this.dataGridView1.Location = new System.Drawing.Point(325, 146);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -64,16 +64,17 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(510, 474);
+            this.textBox1.Location = new System.Drawing.Point(481, 512);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 8;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(335, 477);
+            this.label1.Location = new System.Drawing.Point(322, 515);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 16);
             this.label1.TabIndex = 9;
@@ -82,7 +83,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(758, 477);
+            this.label2.Location = new System.Drawing.Point(762, 515);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 16);
             this.label2.TabIndex = 10;
@@ -90,14 +91,15 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(878, 474);
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(865, 512);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 22);
             this.textBox2.TabIndex = 11;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(878, 502);
+            this.button1.Location = new System.Drawing.Point(865, 540);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 30);
             this.button1.TabIndex = 12;

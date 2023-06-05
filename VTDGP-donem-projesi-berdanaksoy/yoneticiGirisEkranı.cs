@@ -48,9 +48,22 @@ namespace VTDGP_donem_projesi_berdanaksoy
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                yoneticiEkrani yoneticiGirisEkranı = new yoneticiEkrani();
-                yoneticiGirisEkranı.Show();
-                this.Hide();
+                string admin = textBox1.Text;
+                if (textBox1.Text=="admin")
+                {
+                    yoneticiEkrani yoneticiEkrani = new yoneticiEkrani();
+                    yoneticiEkrani.Show();
+                    this.Hide();
+                }
+                else  
+                {
+                    yoneticiEkrani yoneticiEkrani = new yoneticiEkrani();
+                    yoneticiEkrani.Show();
+                    this.Hide();
+                    yoneticiEkrani.button3.Visible=false;
+                    yoneticiEkrani.button5.Visible = false;
+                }
+                
             }
             else
             {

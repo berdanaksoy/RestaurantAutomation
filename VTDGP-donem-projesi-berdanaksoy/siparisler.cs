@@ -23,16 +23,20 @@ namespace VTDGP_donem_projesi_berdanaksoy
         SqlDataReader dr;
         SqlDataAdapter da;
 
-        private void siparisler_Load(object sender, EventArgs e)
+        public void dataGuncelle()
         {
-            button1.Enabled = false;
             con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
             con.Open();
-            da = new SqlDataAdapter("SELECT * FROM siparisler", con);
+            da = new SqlDataAdapter("SELECT * FROM siparisler where siparisDurumu!='Servis Edildi'", con);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
             con.Close();
+        }
+
+        private void siparisler_Load(object sender, EventArgs e)
+        {
+            dataGuncelle();
 
             comboBox1.Items.Add("Hazirlaniyor");
             comboBox1.Items.Add("Servis Edildi");
@@ -52,13 +56,9 @@ namespace VTDGP_donem_projesi_berdanaksoy
             cmd = new SqlCommand("DELETE FROM siparisler WHERE siparisID=@siparisID", con);
             cmd.Parameters.AddWithValue("siparisID",int.Parse(textBox2.Text));
             cmd.ExecuteNonQuery();
-
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-            da = new SqlDataAdapter("SELECT * FROM siparisler", con);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
             con.Close();
+
+            dataGuncelle();
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
@@ -74,13 +74,9 @@ namespace VTDGP_donem_projesi_berdanaksoy
             cmd.Parameters.AddWithValue("siparisID", int.Parse(textBox1.Text));
             cmd.Parameters.AddWithValue("siparisDurumu",comboBox1.Text);
             cmd.ExecuteNonQuery();
-
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-            da = new SqlDataAdapter("SELECT * FROM siparisler", con);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
             con.Close();
+
+            dataGuncelle();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)

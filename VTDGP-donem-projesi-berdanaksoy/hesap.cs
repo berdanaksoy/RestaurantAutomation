@@ -32,6 +32,8 @@ namespace VTDGP_donem_projesi_berdanaksoy
             anaEkran.Show();
             this.Hide();
 
+            anaEkran.comboBox1.Text = anaEkran.transferBilgi.ToString();
+
             anaEkran.comboBox1.Enabled = false;
             anaEkran.button5.Enabled = false;
 
@@ -44,9 +46,6 @@ namespace VTDGP_donem_projesi_berdanaksoy
         {
             if (int.Parse(textBox2.Text)>=hafiza)
             {
-                try
-                {
-                    int.Parse(textBox1.Text);
                     if (textBox1.Text == "")
                     {
                         MessageBox.Show("Lütfen önce bahşiş yüzdenizi giriniz.");
@@ -65,25 +64,27 @@ namespace VTDGP_donem_projesi_berdanaksoy
                         anaEkran.button3.Visible = false;
                         anaEkran.button4.Visible = false;
 
-                        string sorgu = "update masalar set musaitlik = 'bos' where masaID = 1";
                         con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-                        cmd = new SqlCommand(sorgu, con);
-                        //cmd.Parameters.AddWithValue("@masaID", comboBox1.SelectedItem);
+                        cmd = new SqlCommand("DELETE FROM siparisler WHERE masaID=@masaID", con);
+                        cmd.Parameters.AddWithValue("@masaID", int.Parse(anaEkran.transferBilgi));
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("Lütfen bahşiş kısmına sayı giriniz.");
-                    textBox1.Clear();
 
-                }
+                        con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                        cmd = new SqlCommand("update masalar set musaitlik = 'bos' where masaID = @masaID", con);
+                        cmd.Parameters.AddWithValue("@masaID", int.Parse(anaEkran.transferBilgi));
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+
+                        siparisler siparisler = new siparisler();
+                        siparisler.dataGuncelle();
+                    }
             }
            else
             {
-                MessageBox.Show("Eksi bahşiş giremezsiniz.");
+                MessageBox.Show("Bahşiş miktarı en az %1 olmalı..");
                 textBox1.Clear();
             }
         }
@@ -91,13 +92,16 @@ namespace VTDGP_donem_projesi_berdanaksoy
         private void hesap_Load(object sender, EventArgs e)
         {
             con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-            con.Open();
-            da = new SqlDataAdapter("SELECT siparisi as 'Siparisiniz' , fiyati as 'Fiyati' FROM siparisler where masaID = 1", con);
+            cmd = new SqlCommand();
+            cmd.Connection = con;
+            da = new SqlDataAdapter("SELECT * FROM siparisler where masaID ='" + int.Parse(anaEkran.transferBilgi) + "' order by siparisID", con);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
 
-            cmd = new SqlCommand("Select hesap from masalar where masaID=1", con);
+
+            cmd = new SqlCommand("SELECT hesap FROM masalar where masaID ='" + int.Parse(anaEkran.transferBilgi) + "'", con);
+            con.Open();
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
@@ -119,6 +123,11 @@ namespace VTDGP_donem_projesi_berdanaksoy
                 textBox2.Text = hafiza.ToString();
             }
             
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

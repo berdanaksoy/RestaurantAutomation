@@ -67,13 +67,13 @@
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Location = new System.Drawing.Point(301, 286);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(200, 200);
             this.button2.TabIndex = 8;
-            this.button2.Text = "Menu";
+            this.button2.Text = "Menu/Siparis";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -90,7 +90,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(200, 200);
             this.button3.TabIndex = 9;
-            this.button3.Text = "Siparis";
+            this.button3.Text = "Siparis Durumu";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
