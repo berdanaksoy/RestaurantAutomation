@@ -82,14 +82,6 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
                     siparisler siparisler = new siparisler();
                     siparisler.dataGuncelle();
-
-                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-                    con.Open();
-                    SqlCommand cmd4 = new SqlCommand("update masalar set hesap=hesap-(select fiyati from menu where urunID=(select urunID from menu where siparisAdi=(select siparisi from siparisler where siparisID=@siparisID))) where masaID=@masaID", con);
-                    cmd4.Parameters.AddWithValue("masaID", int.Parse(anaEkran.transferBilgi));
-                    cmd4.Parameters.AddWithValue("siparisID", int.Parse(textBox1.Text));
-                    cmd4.ExecuteNonQuery();
-                    con.Close();
                 }
                 else
                 {

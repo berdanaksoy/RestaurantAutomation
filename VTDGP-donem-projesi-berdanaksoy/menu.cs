@@ -17,7 +17,7 @@ namespace VTDGP_donem_projesi_berdanaksoy
         public menu()
         {
             InitializeComponent();
-           
+
         }
 
         SqlConnection con;
@@ -60,52 +60,49 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text!="")
+            if (textBox1.Text != "")
             {
                 con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
                 con.Open();
-                cmd = new SqlCommand("SELECT urunID FROM menu",con);
-                dr= cmd.ExecuteReader();
+                cmd = new SqlCommand("SELECT urunID FROM menu", con);
+                dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    if(dr.Read().ToString()==textBox1.Text)
-                    {
-                        con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-                        con.Open();
-                        cmd = new SqlCommand("update masalar set hesap=hesap+(select fiyati from menu where urunID=@urunID) where masaID=@masaID", con);
-                        cmd.Parameters.AddWithValue("masaID", int.Parse(anaEkran.transferBilgi));
-                        cmd.Parameters.AddWithValue("urunID", int.Parse(textBox1.Text));
-                        cmd.ExecuteNonQuery();
-                        con.Close();
+                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                    con.Open();
+                    cmd = new SqlCommand("update masalar set hesap=hesap+(select fiyati from menu where urunID=@urunID) where masaID=@masaID", con);
+                    cmd.Parameters.AddWithValue("masaID", int.Parse(anaEkran.transferBilgi));
+                    cmd.Parameters.AddWithValue("urunID", int.Parse(textBox1.Text));
+                    cmd.ExecuteNonQuery();
+                    con.Close();
 
-                        con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-                        con.Open();
-                        cmd = new SqlCommand("Insert into siparisler(masaID, siparisi, fiyati, siparisDurumu) values(@masaID, (select siparisAdi from menu where urunID = @urunID), (select fiyati from menu where urunID = @urunID),'sirada')", con);
-                        cmd.Parameters.AddWithValue("masaID", int.Parse(anaEkran.transferBilgi));
-                        cmd.Parameters.AddWithValue("urunID", int.Parse(textBox1.Text));
-                        cmd.ExecuteNonQuery();
-                        con.Close();
+                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                    con.Open();
+                    cmd = new SqlCommand("Insert into siparisler(masaID, siparisi, fiyati, siparisDurumu) values(@masaID, (select siparisAdi from menu where urunID = @urunID), (select fiyati from menu where urunID = @urunID),'sirada')", con);
+                    cmd.Parameters.AddWithValue("masaID", int.Parse(anaEkran.transferBilgi));
+                    cmd.Parameters.AddWithValue("urunID", int.Parse(textBox1.Text));
+                    cmd.ExecuteNonQuery();
+                    con.Close();
 
-                        con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-                        con.Open();
-                        SqlCommand cmd2 = new SqlCommand();
-                        cmd2.Connection = con;
-                        da = new SqlDataAdapter("SELECT * FROM siparisler where masaID ='" + int.Parse(anaEkran.transferBilgi) + "' order by siparisID", con);
-                        DataSet ds = new DataSet();
-                        da.Fill(ds);
-                        dataGridView2.DataSource = ds.Tables[0];
-                        con.Close();
+                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                    con.Open();
+                    SqlCommand cmd2 = new SqlCommand();
+                    cmd2.Connection = con;
+                    da = new SqlDataAdapter("SELECT * FROM siparisler where masaID ='" + int.Parse(anaEkran.transferBilgi) + "' order by siparisID", con);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dataGridView2.DataSource = ds.Tables[0];
+                    con.Close();
 
-                        siparisler siparisler = new siparisler();
-                        siparisler.dataGuncelle();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lütfen menude olan bır urunID giriniz.");
-                    }
+                    siparisler siparisler = new siparisler();
+                    siparisler.dataGuncelle();
                 }
                 con.Close();
-            } 
+            }
+            else
+            {
+                MessageBox.Show("UrunID bos birakilamaz.");
+            }
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
