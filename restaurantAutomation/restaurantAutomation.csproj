@@ -46,23 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="anaEkran.cs">
+    <Compile Include="mainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="anaEkran.Designer.cs">
-      <DependentUpon>anaEkran.cs</DependentUpon>
+    <Compile Include="mainScreen.Designer.cs">
+      <DependentUpon>mainScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="calisanlar.cs">
+    <Compile Include="employees.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="calisanlar.Designer.cs">
-      <DependentUpon>calisanlar.cs</DependentUpon>
+    <Compile Include="employees.Designer.cs">
+      <DependentUpon>employees.cs</DependentUpon>
     </Compile>
-    <Compile Include="hesap.cs">
+    <Compile Include="bill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="hesap.Designer.cs">
-      <DependentUpon>hesap.cs</DependentUpon>
+    <Compile Include="bill.Designer.cs">
+      <DependentUpon>bill.cs</DependentUpon>
     </Compile>
     <Compile Include="menu.cs">
       <SubType>Form</SubType>
@@ -70,58 +70,58 @@
     <Compile Include="menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="menuDuzenlemeEkrani.cs">
+    <Compile Include="menuEditScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="menuDuzenlemeEkrani.Designer.cs">
-      <DependentUpon>menuDuzenlemeEkrani.cs</DependentUpon>
+    <Compile Include="menuEditScreen.Designer.cs">
+      <DependentUpon>menuEditScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="siparis.cs">
+    <Compile Include="order.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="siparis.Designer.cs">
-      <DependentUpon>siparis.cs</DependentUpon>
+    <Compile Include="order.Designer.cs">
+      <DependentUpon>order.cs</DependentUpon>
     </Compile>
-    <Compile Include="siparisler.cs">
+    <Compile Include="orders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="siparisler.Designer.cs">
-      <DependentUpon>siparisler.cs</DependentUpon>
+    <Compile Include="orders.Designer.cs">
+      <DependentUpon>orders.cs</DependentUpon>
     </Compile>
-    <Compile Include="yoneticiDuzenlemeEkrani.cs">
+    <Compile Include="adminEditScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="yoneticiDuzenlemeEkrani.Designer.cs">
-      <DependentUpon>yoneticiDuzenlemeEkrani.cs</DependentUpon>
+    <Compile Include="adminEditScreen.Designer.cs">
+      <DependentUpon>adminEditScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="yoneticiEkrani.cs">
+    <Compile Include="adminScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="yoneticiEkrani.Designer.cs">
-      <DependentUpon>yoneticiEkrani.cs</DependentUpon>
+    <Compile Include="adminScreen.Designer.cs">
+      <DependentUpon>adminScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="yoneticiGirisEkranı.cs">
+    <Compile Include="adminLoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="yoneticiGirisEkranı.Designer.cs">
-      <DependentUpon>yoneticiGirisEkranı.cs</DependentUpon>
+    <Compile Include="adminLoginScreen.Designer.cs">
+      <DependentUpon>adminLoginScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="anaEkran.resx">
-      <DependentUpon>anaEkran.cs</DependentUpon>
+    <EmbeddedResource Include="mainScreen.resx">
+      <DependentUpon>mainScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="calisanlar.resx">
-      <DependentUpon>calisanlar.cs</DependentUpon>
+    <EmbeddedResource Include="employees.resx">
+      <DependentUpon>employees.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="hesap.resx">
-      <DependentUpon>hesap.cs</DependentUpon>
+    <EmbeddedResource Include="bill.resx">
+      <DependentUpon>bill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menu.resx">
       <DependentUpon>menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="menuDuzenlemeEkrani.resx">
-      <DependentUpon>menuDuzenlemeEkrani.cs</DependentUpon>
+    <EmbeddedResource Include="menuEditScreen.resx">
+      <DependentUpon>menuEditScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -132,20 +132,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="siparis.resx">
-      <DependentUpon>siparis.cs</DependentUpon>
+    <EmbeddedResource Include="order.resx">
+      <DependentUpon>order.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="siparisler.resx">
-      <DependentUpon>siparisler.cs</DependentUpon>
+    <EmbeddedResource Include="orders.resx">
+      <DependentUpon>orders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="yoneticiDuzenlemeEkrani.resx">
-      <DependentUpon>yoneticiDuzenlemeEkrani.cs</DependentUpon>
+    <EmbeddedResource Include="adminEditScreen.resx">
+      <DependentUpon>adminEditScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="yoneticiEkrani.resx">
-      <DependentUpon>yoneticiEkrani.cs</DependentUpon>
+    <EmbeddedResource Include="adminScreen.resx">
+      <DependentUpon>adminScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="yoneticiGirisEkranı.resx">
-      <DependentUpon>yoneticiGirisEkranı.cs</DependentUpon>
+    <EmbeddedResource Include="adminLoginScreen.resx">
+      <DependentUpon>adminLoginScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

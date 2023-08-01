@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTDGP-donem-projesi-berdanaksoy", "VTDGP-donem-projesi-berdanaksoy\VTDGP-donem-projesi-berdanaksoy.csproj", "{ECBA6B43-3D9A-440A-AA7E-11E188C7A73B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "restaurantAutomation", "VTDGP-donem-projesi-berdanaksoy\restaurantAutomation.csproj", "{ECBA6B43-3D9A-440A-AA7E-11E188C7A73B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

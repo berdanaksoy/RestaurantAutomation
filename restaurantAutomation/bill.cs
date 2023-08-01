@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace VTDGP_donem_projesi_berdanaksoy
+namespace restaurantAutomation
 {
-    public partial class hesap : Form
+    public partial class bill : Form
     {
-        public hesap()
+        public bill()
         {
             InitializeComponent();
         }
@@ -28,11 +28,11 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
         private void button2_Click(object sender, EventArgs e)
         {
-            anaEkran anaEkran = new anaEkran();
+            mainScreen anaEkran = new mainScreen();
             anaEkran.Show();
             this.Hide();
 
-            anaEkran.comboBox1.Text = anaEkran.transferBilgi.ToString();
+            anaEkran.comboBox1.Text = mainScreen.transferBilgi.ToString();
 
             anaEkran.comboBox1.Enabled = false;
             anaEkran.button5.Enabled = false;
@@ -53,7 +53,7 @@ namespace VTDGP_donem_projesi_berdanaksoy
                     else
                     {
                         MessageBox.Show("Ödemeniz için garson yönlendirilmiştir.");
-                        anaEkran anaEkran = new anaEkran();
+                        mainScreen anaEkran = new mainScreen();
                         anaEkran.Show();
                         this.Hide();
 
@@ -66,19 +66,19 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
                         con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
                         cmd = new SqlCommand("DELETE FROM siparisler WHERE masaID=@masaID", con);
-                        cmd.Parameters.AddWithValue("@masaID", int.Parse(anaEkran.transferBilgi));
+                        cmd.Parameters.AddWithValue("@masaID", int.Parse(mainScreen.transferBilgi));
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
 
                         con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
                         cmd = new SqlCommand("update masalar set musaitlik = 'bos' where masaID = @masaID", con);
-                        cmd.Parameters.AddWithValue("@masaID", int.Parse(anaEkran.transferBilgi));
+                        cmd.Parameters.AddWithValue("@masaID", int.Parse(mainScreen.transferBilgi));
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
 
-                        siparisler siparisler = new siparisler();
+                        orders siparisler = new orders();
                         siparisler.dataGuncelle();
                     }
             }
@@ -94,13 +94,13 @@ namespace VTDGP_donem_projesi_berdanaksoy
             con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
             cmd = new SqlCommand();
             cmd.Connection = con;
-            da = new SqlDataAdapter("SELECT * FROM siparisler where masaID ='" + int.Parse(anaEkran.transferBilgi) + "' order by siparisID", con);
+            da = new SqlDataAdapter("SELECT * FROM siparisler where masaID ='" + int.Parse(mainScreen.transferBilgi) + "' order by siparisID", con);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
 
 
-            cmd = new SqlCommand("SELECT hesap FROM masalar where masaID ='" + int.Parse(anaEkran.transferBilgi) + "'", con);
+            cmd = new SqlCommand("SELECT hesap FROM masalar where masaID ='" + int.Parse(mainScreen.transferBilgi) + "'", con);
             con.Open();
             dr = cmd.ExecuteReader();
             if (dr.Read())

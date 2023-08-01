@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VTDGP_donem_projesi_berdanaksoy.Properties
+namespace restaurantAutomation.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace VTDGP_donem_projesi_berdanaksoy.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("VTDGP_donem_projesi_berdanaksoy.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("restaurantAutomation.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

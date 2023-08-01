@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VTDGP_donem_projesi_berdanaksoy.Properties {
+namespace restaurantAutomation.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

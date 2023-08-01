@@ -1,6 +1,6 @@
-﻿namespace VTDGP_donem_projesi_berdanaksoy
+﻿namespace restaurantAutomation
 {
-    partial class yoneticiDuzenlemeEkrani
+    partial class adminEditScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(yoneticiDuzenlemeEkrani));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminEditScreen));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();

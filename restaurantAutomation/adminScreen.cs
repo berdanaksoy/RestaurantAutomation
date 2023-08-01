@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VTDGP_donem_projesi_berdanaksoy
+namespace restaurantAutomation
 {
-    public partial class yoneticiEkrani : Form
+    public partial class adminScreen : Form
     {
-        public yoneticiEkrani()
+        public adminScreen()
         {
             InitializeComponent();
         }
@@ -24,8 +24,8 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
         private void button2_Click(object sender, EventArgs e)
         {
-            yoneticiGirisEkranı yoneticiGirisEkranı = new yoneticiGirisEkranı();
-            yoneticiGirisEkranı.Show();
+            adminLoginScreen adminLoginScreen = new adminLoginScreen();
+            adminLoginScreen.Show();
             this.Hide();
         }
 
@@ -36,28 +36,28 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
         private void button3_Click(object sender, EventArgs e)
         {
-            calisanlar calisanlar = new calisanlar();
+            employees calisanlar = new employees();
             calisanlar.Show();
             this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            siparisler siparisler = new siparisler();
+            orders siparisler = new orders();
             siparisler.Show();
             this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            yoneticiDuzenlemeEkrani yoneticiDuzenlemeEkrani = new yoneticiDuzenlemeEkrani();
+            adminEditScreen yoneticiDuzenlemeEkrani = new adminEditScreen();
             yoneticiDuzenlemeEkrani.Show();
             this.Hide();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            menuDuzenlemeEkrani menuDuzenlemeEkrani = new menuDuzenlemeEkrani();
+            menuEditScreen menuDuzenlemeEkrani = new menuEditScreen();
             menuDuzenlemeEkrani.Show();
             this.Hide();
         }

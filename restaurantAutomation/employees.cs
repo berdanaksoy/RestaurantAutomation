@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace VTDGP_donem_projesi_berdanaksoy
+namespace restaurantAutomation
 {
-    public partial class calisanlar : Form
+    public partial class employees : Form
     {
-        public calisanlar()
+        public employees()
         {
             InitializeComponent();
         }
@@ -37,7 +37,7 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
         private void button2_Click(object sender, EventArgs e)
         {
-            yoneticiEkrani yoneticiEkrani = new yoneticiEkrani();
+            adminScreen yoneticiEkrani = new adminScreen();
             yoneticiEkrani.Show();
             this.Hide();
         }

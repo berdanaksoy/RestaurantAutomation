@@ -1,6 +1,6 @@
-﻿namespace VTDGP_donem_projesi_berdanaksoy
+﻿namespace restaurantAutomation
 {
-    partial class hesap
+    partial class order
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(hesap));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(order));
             this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,87 +44,75 @@
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Location = new System.Drawing.Point(1216, 12);
+            this.button2.Location = new System.Drawing.Point(1198, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(52, 52);
-            this.button2.TabIndex = 6;
+            this.button2.TabIndex = 5;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // dataGridView1
+            // button1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(325, 146);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(640, 360);
-            this.dataGridView1.TabIndex = 7;
+            this.button1.Location = new System.Drawing.Point(591, 482);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 29);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Siparisi İptal Et";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(481, 512);
+            this.textBox1.Location = new System.Drawing.Point(485, 485);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 8;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(322, 515);
+            this.label1.Location = new System.Drawing.Point(411, 488);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 16);
+            this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Bahşiş Yüzdenizi Giriniz :";
+            this.label1.Text = "SiparisID :";
             // 
-            // label2
+            // dataGridView1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(762, 515);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 16);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Toplam Tutar  :";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(414, 146);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(356, 333);
+            this.dataGridView1.TabIndex = 11;
             // 
             // textBox2
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(865, 512);
+            this.textBox2.Location = new System.Drawing.Point(978, 413);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 11;
+            this.textBox2.TabIndex = 12;
+            this.textBox2.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(865, 540);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 30);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Ödeme Yap";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // hesap
+            // siparis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "hesap";
+            this.Name = "siparis";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "hesap";
-            this.Load += new System.EventHandler(this.hesap_Load);
+            this.Text = "siparis";
+            this.Load += new System.EventHandler(this.siparis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -135,11 +122,10 @@
         #endregion
 
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
     }
 }

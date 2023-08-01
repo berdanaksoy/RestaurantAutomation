@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VTDGP_donem_projesi_berdanaksoy
+namespace restaurantAutomation
 {
-    public partial class menuDuzenlemeEkrani : Form
+    public partial class menuEditScreen : Form
     {
-        public menuDuzenlemeEkrani()
+        public menuEditScreen()
         {
             InitializeComponent();
         }
@@ -36,7 +36,7 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
         private void button2_Click(object sender, EventArgs e)
         {
-            yoneticiEkrani yoneticiEkrani = new yoneticiEkrani();
+            adminScreen yoneticiEkrani = new adminScreen();
             yoneticiEkrani.Show();
             this.Hide();
         }

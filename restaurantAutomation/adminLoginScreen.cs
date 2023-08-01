@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace VTDGP_donem_projesi_berdanaksoy
+namespace restaurantAutomation
 {
-    public partial class yoneticiGirisEkranı : Form
+    public partial class adminLoginScreen : Form
     {
-        public yoneticiGirisEkranı()
+        public adminLoginScreen()
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
         private void button2_Click(object sender, EventArgs e)
         {
-            anaEkran anaEkran = new anaEkran();
+            mainScreen anaEkran = new mainScreen();
             anaEkran.Show();
             this.Hide();
 
@@ -51,13 +51,13 @@ namespace VTDGP_donem_projesi_berdanaksoy
                 string admin = textBox1.Text;
                 if (textBox1.Text=="admin")
                 {
-                    yoneticiEkrani yoneticiEkrani = new yoneticiEkrani();
+                    adminScreen yoneticiEkrani = new adminScreen();
                     yoneticiEkrani.Show();
                     this.Hide();
                 }
                 else  
                 {
-                    yoneticiEkrani yoneticiEkrani = new yoneticiEkrani();
+                    adminScreen yoneticiEkrani = new adminScreen();
                     yoneticiEkrani.Show();
                     this.Hide();
                     yoneticiEkrani.button3.Visible=false;

@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace VTDGP_donem_projesi_berdanaksoy
+namespace restaurantAutomation
 {
-    public partial class anaEkran : Form
+    public partial class mainScreen : Form
     {
-        public anaEkran()
+        public mainScreen()
         {
             InitializeComponent();
         }
@@ -27,21 +27,21 @@ namespace VTDGP_donem_projesi_berdanaksoy
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            yoneticiGirisEkranı yoneticiEkranı = new yoneticiGirisEkranı();
-            yoneticiEkranı.Show();
+            adminLoginScreen adminLoginScreen = new adminLoginScreen();
+            adminLoginScreen.Show();
             this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            hesap hesap = new hesap();
+            bill hesap = new bill();
             hesap.Show();
             this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            siparis siparis = new siparis();
+            order siparis = new order();
             siparis.Show();
             this.Hide();
         }
