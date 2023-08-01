@@ -52,27 +52,27 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(478, 331);
+            this.label2.Location = new System.Drawing.Point(449, 319);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 20);
+            this.label2.Size = new System.Drawing.Size(93, 22);
             this.label2.TabIndex = 13;
             this.label2.Text = "Password :";
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(417, 291);
+            this.label1.Location = new System.Drawing.Point(425, 291);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 24);
+            this.label1.Size = new System.Drawing.Size(117, 22);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Admin name :";
+            this.label1.Text = "Admin Name :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // button3
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Location = new System.Drawing.Point(548, 370);
+            this.button3.Location = new System.Drawing.Point(548, 347);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 33);
             this.button3.TabIndex = 11;
@@ -82,7 +82,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(548, 331);
+            this.textBox2.Location = new System.Drawing.Point(548, 319);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(269, 22);

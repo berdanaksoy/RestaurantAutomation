@@ -70,13 +70,13 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 23);
             this.button1.TabIndex = 10;
-            this.button1.Text = "Siparis Durumunu Guncelle";
+            this.button1.Text = "Update Order Status";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(525, 459);
+            this.button3.Location = new System.Drawing.Point(519, 460);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(140, 23);
             this.button3.TabIndex = 11;
@@ -86,7 +86,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(361, 460);
+            this.textBox2.Location = new System.Drawing.Point(355, 460);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(158, 22);
             this.textBox2.TabIndex = 12;
@@ -95,11 +95,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(286, 463);
+            this.label1.Location = new System.Drawing.Point(286, 462);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 13;
-            this.label1.Text = "OrderID :";
+            this.label1.Text = "Order ID :";
             // 
             // comboBox1
             // 
@@ -121,11 +121,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(772, 185);
+            this.label2.Location = new System.Drawing.Point(777, 185);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 16);
+            this.label2.Size = new System.Drawing.Size(63, 16);
             this.label2.TabIndex = 16;
-            this.label2.Text = "OrderID :";
+            this.label2.Text = "Order ID :";
             // 
             // orders
             // 

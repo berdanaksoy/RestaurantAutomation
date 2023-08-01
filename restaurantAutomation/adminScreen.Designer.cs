@@ -100,7 +100,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(200, 200);
             this.button5.TabIndex = 10;
-            this.button5.Text = "Edit admin";
+            this.button5.Text = "Edit Admin";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -115,7 +115,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(200, 200);
             this.button6.TabIndex = 11;
-            this.button6.Text = "Edit menu";
+            this.button6.Text = "Edit Menu";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 

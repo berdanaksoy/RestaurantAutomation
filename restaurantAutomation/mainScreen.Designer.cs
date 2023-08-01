@@ -44,7 +44,7 @@
             this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel1.Location = new System.Drawing.Point(1162, 648);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(88, 16);
+            this.linkLabel1.Size = new System.Drawing.Size(81, 16);
             this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Admin Login";
@@ -57,7 +57,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(148, 146);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(962, 74);
+            this.label3.Size = new System.Drawing.Size(902, 74);
             this.label3.TabIndex = 7;
             this.label3.Text = "Welcome the Aksoy Restaurant ";
             // 

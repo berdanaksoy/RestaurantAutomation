@@ -77,15 +77,15 @@
             // 
             this.button1.Location = new System.Drawing.Point(361, 434);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 36);
+            this.button1.Size = new System.Drawing.Size(122, 22);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Order now";
+            this.button1.Text = "Order Now";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(255, 441);
+            this.textBox1.Location = new System.Drawing.Point(255, 434);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 8;
@@ -94,11 +94,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(195, 444);
+            this.label1.Location = new System.Drawing.Point(174, 437);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 16);
+            this.label1.Size = new System.Drawing.Size(75, 16);
             this.label1.TabIndex = 9;
-            this.label1.Text = "ProductID :";
+            this.label1.Text = "Product ID :";
             // 
             // menu
             // 
