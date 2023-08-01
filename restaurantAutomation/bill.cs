@@ -79,7 +79,7 @@ namespace restaurantAutomation
                         con.Close();
 
                         orders orders = new orders();
-                        orders.dataGuncelle();
+                        orders.updateData();
                     }
             }
            else
