@@ -24,50 +24,50 @@ namespace restaurantAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            mainScreen anaEkran = new mainScreen();
-            anaEkran.Show();
+            mainScreen mainScreen = new mainScreen();
+            mainScreen.Show();
             this.Hide();
 
-            anaEkran.comboBox1.Enabled = false;
-            anaEkran.button5.Enabled = false;
+            mainScreen.comboBox1.Enabled = false;
+            mainScreen.button5.Enabled = false;
 
-            anaEkran.button2.Visible = true;
-            anaEkran.button3.Visible = true;
-            anaEkran.button4.Visible = true;
+            mainScreen.button2.Visible = true;
+            mainScreen.button3.Visible = true;
+            mainScreen.button4.Visible = true;
         }
 
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string sorgu = "SELECT * FROM yoneticiGirisi where yoneticiAdi=@user AND sifre=@pass";
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-            cmd = new SqlCommand(sorgu, con);
-            cmd.Parameters.AddWithValue("@user", textBox1.Text);
-            cmd.Parameters.AddWithValue("@pass", textBox2.Text);
+            string query = "SELECT * FROM adminLogin where adminName=@adminName AND password=@password";
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("adminName", textBox1.Text);
+            cmd.Parameters.AddWithValue("password", textBox2.Text);
             con.Open();
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
                 string admin = textBox1.Text;
-                if (textBox1.Text=="admin")
+                if (textBox1.Text=="admin2")
                 {
-                    adminScreen yoneticiEkrani = new adminScreen();
-                    yoneticiEkrani.Show();
+                    adminScreen adminScreen = new adminScreen();
+                    adminScreen.Show();
                     this.Hide();
                 }
                 else  
                 {
-                    adminScreen yoneticiEkrani = new adminScreen();
-                    yoneticiEkrani.Show();
+                    adminScreen adminScreen = new adminScreen();
+                    adminScreen.Show();
                     this.Hide();
-                    yoneticiEkrani.button3.Visible=false;
-                    yoneticiEkrani.button5.Visible = false;
+                    adminScreen.button3.Visible=false;
+                    adminScreen.button5.Visible = false;
                 }
                 
             }
             else
             {
-                MessageBox.Show("Kullanıcı adını ve şifrenizi kontrol ediniz.");
+                MessageBox.Show("Check your username and password.");
             }
             con.Close();
         }

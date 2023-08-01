@@ -23,11 +23,11 @@ namespace restaurantAutomation
         SqlDataReader dr;
         SqlDataAdapter da;
 
-        public void dataGuncelle()
+        public void updateData()
         {
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
             con.Open();
-            da = new SqlDataAdapter("SELECT * FROM menu order by urunTipi", con);
+            da = new SqlDataAdapter("SELECT * FROM menu order by productType", con);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
@@ -36,29 +36,29 @@ namespace restaurantAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            adminScreen yoneticiEkrani = new adminScreen();
-            yoneticiEkrani.Show();
+            adminScreen adminScreen = new adminScreen();
+            adminScreen.Show();
             this.Hide();
         }
 
-        private void menuDuzenlemeEkrani_Load(object sender, EventArgs e)
+        private void menuEditScreen_Load(object sender, EventArgs e)
         {
-            dataGuncelle();
+            updateData();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
             con.Open();
-            cmd = new SqlCommand("delete from menu where urunID = @urunID",con);
-            cmd.Parameters.AddWithValue("urunID",int.Parse(textBox4.Text));
+            cmd = new SqlCommand("delete from menu where productID = @productID",con);
+            cmd.Parameters.AddWithValue("productID",int.Parse(textBox4.Text));
             cmd.ExecuteNonQuery();
             con.Close();
 
-            dataGuncelle();
+            updateData();
 
             menu menu = new menu();
-            menu.dataGuncelle();
+            menu.updateData();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -68,41 +68,41 @@ namespace restaurantAutomation
                     int.Parse(textBox2.Text);
                     if (int.Parse(textBox2.Text) >= 0)
                     {
-                        con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                        con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                         con.Open();
-                        cmd = new SqlCommand("insert into menu (siparisAdi,fiyati,urunTipi) values (@siparisAdi,@fiyati,@urunTipi) ", con);
-                        cmd.Parameters.AddWithValue("siparisAdi", textBox1.Text);
-                        cmd.Parameters.AddWithValue("fiyati", int.Parse(textBox2.Text));
-                        cmd.Parameters.AddWithValue("urunTipi", textBox3.Text);
+                        cmd = new SqlCommand("insert into menu (orderName,price,productType) values (@orderName,@price,@productType) ", con);
+                        cmd.Parameters.AddWithValue("orderName", textBox1.Text);
+                        cmd.Parameters.AddWithValue("price", int.Parse(textBox2.Text));
+                        cmd.Parameters.AddWithValue("productType", textBox3.Text);
                         cmd.ExecuteNonQuery();
                         con.Close();
 
-                        dataGuncelle();
+                        updateData();
                     }
                     else
                     {
-                        MessageBox.Show("Fiyatı eksi giremezsiniz.");
+                        MessageBox.Show("You can't enter the price minus.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Siparis adini ve urun tipini bos bırakamazsınız.");
+                    MessageBox.Show("You can't leave the order name and product type blank.");
                 }
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar);    //sayı engelleme
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar);
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar); //harf engelleme
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar);    //sayı engelleme
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar);
         }
     }
 }

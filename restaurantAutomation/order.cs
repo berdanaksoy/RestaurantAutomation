@@ -26,12 +26,12 @@ namespace restaurantAutomation
         SqlDataReader dr;
         SqlDataAdapter da;
 
-        public void dataGuncelle()
+        public void updateData()
         {
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            da = new SqlDataAdapter("SELECT * FROM siparisler where masaID ='" + int.Parse(mainScreen.transferBilgi) + "' order by siparisID", con);
+            da = new SqlDataAdapter("SELECT * FROM orders where tableID ='" + int.Parse(mainScreen.transferİnformation) + "' order by orderID", con);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
@@ -40,52 +40,52 @@ namespace restaurantAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            mainScreen anaEkran = new mainScreen();
-            anaEkran.Show();
+            mainScreen mainScreen = new mainScreen();
+            mainScreen.Show();
             this.Hide();
 
-            anaEkran.comboBox1.Text = mainScreen.transferBilgi.ToString();
+            mainScreen.comboBox1.Text = mainScreen.transferİnformation.ToString();
 
-            anaEkran.comboBox1.Enabled = false;
-            anaEkran.button5.Enabled = false;
+            mainScreen.comboBox1.Enabled = false;
+            mainScreen.button5.Enabled = false;
 
-            anaEkran.button2.Visible = true;
-            anaEkran.button3.Visible = true;
-            anaEkran.button4.Visible = true;
+            mainScreen.button2.Visible = true;
+            mainScreen.button3.Visible = true;
+            mainScreen.button4.Visible = true;
         }
 
-        private void siparis_Load(object sender, EventArgs e)
+        private void order_Load(object sender, EventArgs e)
         {
-            dataGuncelle();
+            updateData();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
             con.Open();
-            cmd = new SqlCommand("select siparisDurumu FROM siparisler WHERE siparisID=@siparisID", con);
-            cmd.Parameters.AddWithValue("siparisID", int.Parse(textBox1.Text));
+            cmd = new SqlCommand("select orderStatus FROM orders WHERE orderID=@orderID", con);
+            cmd.Parameters.AddWithValue("orderID", int.Parse(textBox1.Text));
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                if (dr["siparisDurumu"].ToString()=="sirada")
+                if (dr["orderStatus"].ToString()=="order in line")
                 {
                     con.Close();
-                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                     con.Open();
-                    SqlCommand cmd2 = new SqlCommand("DELETE FROM siparisler WHERE siparisID=@siparisID", con);
-                    cmd2.Parameters.AddWithValue("siparisID", int.Parse(textBox1.Text));
+                    SqlCommand cmd2 = new SqlCommand("DELETE FROM orders WHERE orderID=@orderID", con);
+                    cmd2.Parameters.AddWithValue("orderID", int.Parse(textBox1.Text));
                     cmd2.ExecuteNonQuery();
                     con.Close();
 
-                    dataGuncelle();
+                    updateData();
 
-                    orders siparisler = new orders();
-                    siparisler.dataGuncelle();
+                    orders orders = new orders();
+                    orders.updateData();
                 }
                 else
                 {
-                    MessageBox.Show("Siparisiniz hazirlandigi veya servis edildigi icin iptal edemezsiniz.");
+                    MessageBox.Show("You can't cancel your order because it has been prepared or served.");
                 }
             }
         }

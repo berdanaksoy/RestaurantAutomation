@@ -57,7 +57,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 29);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Siparisi İptal Et";
+            this.button1.Text = "Cancel the Order";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -75,7 +75,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 9;
-            this.label1.Text = "SiparisID :";
+            this.label1.Text = "OrderID :";
             // 
             // dataGridView1
             // 
@@ -95,7 +95,7 @@
             this.textBox2.TabIndex = 12;
             this.textBox2.Visible = false;
             // 
-            // siparis
+            // order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -109,10 +109,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "siparis";
+            this.Name = "order";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "siparis";
-            this.Load += new System.EventHandler(this.siparis_Load);
+            this.Text = "order";
+            this.Load += new System.EventHandler(this.order_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -23,11 +23,11 @@ namespace restaurantAutomation
         SqlDataReader dr;
         SqlDataAdapter da;
 
-        private void yoneticiDuzenlemeEkrani_Load(object sender, EventArgs e)
+        private void adminEditScreen_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
             con.Open();
-            da = new SqlDataAdapter("SELECT * FROM yoneticiGirisi order by yoneticiID", con);
+            da = new SqlDataAdapter("SELECT * FROM adminLogin order by adminID", con);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
@@ -41,47 +41,47 @@ namespace restaurantAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            adminScreen yoneticiEkrani = new adminScreen();
-            yoneticiEkrani.Show();
+            adminScreen adminScreen = new adminScreen();
+            adminScreen.Show();
             this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             bool check = false;
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-            cmd = new SqlCommand("select * from yoneticiGirisi where yoneticiAdi=@yoneticiAdi and sifre=@sifre", con);
-            cmd.Parameters.AddWithValue("yoneticiAdi", textBox7.Text);
-            cmd.Parameters.AddWithValue("sifre",textBox2.Text);
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
+            cmd = new SqlCommand("select * from adminLogin where adminName=@adminName and password=@password", con);
+            cmd.Parameters.AddWithValue("adminName", textBox7.Text);
+            cmd.Parameters.AddWithValue("password",textBox2.Text);
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                if (textBox7.Text == dr["yoneticiAdi"].ToString() && textBox2.Text == dr["sifre"].ToString())
+                if (textBox7.Text == dr["adminName"].ToString() && textBox2.Text == dr["password"].ToString())
                 {
                         check = true;
                 }
             }
             if (check==true)
             {
-                con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                 con.Open();
-                cmd = new SqlCommand("UPDATE yoneticiGirisi SET sifre = @sifre WHERE yoneticiAdi = @yoneticiAdi", con);
-                cmd.Parameters.AddWithValue("yoneticiAdi", textBox7.Text);
-                cmd.Parameters.AddWithValue("sifre", textBox3.Text);
+                cmd = new SqlCommand("UPDATE adminLogin SET password = @password WHERE adminName = @adminName", con);
+                cmd.Parameters.AddWithValue("adminName", textBox7.Text);
+                cmd.Parameters.AddWithValue("password", textBox3.Text);
                 cmd.ExecuteNonQuery();
 
-                da = new SqlDataAdapter("SELECT * FROM yoneticiGirisi order by yoneticiID", con);
+                da = new SqlDataAdapter("SELECT * FROM adminLogin order by adminID", con);
                 DataSet dss = new DataSet();
                 da.Fill(dss);
                 dataGridView1.DataSource = dss.Tables[0];
                 con.Close();
 
-                MessageBox.Show("Sifreniz degismistir.");
+                MessageBox.Show("Your password has changed.");
             }
             else
             {
-                MessageBox.Show("Yonetici adi veya sifreniz yanlis.");
+                MessageBox.Show("Your administrator name or password is incorrect.");
             }
         }
 
@@ -89,18 +89,18 @@ namespace restaurantAutomation
         {
             if (textBox4.Text=="" && textBox5.Text=="")
             {
-                MessageBox.Show("Yonetici adi ve sifre bos birakilamaz.");
+                MessageBox.Show("Administrator name or password cannot be left blank.");
             }
             else
             {
-                con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                 con.Open();
-                cmd = new SqlCommand("insert into yoneticiGirisi (yoneticiAdi,sifre) values (@yoneticiAdi,@sifre) ", con);
-                cmd.Parameters.AddWithValue("yoneticiAdi", textBox4.Text);
-                cmd.Parameters.AddWithValue("sifre", textBox5.Text);
+                cmd = new SqlCommand("insert into adminLogin (adminName,password) values (@adminName,@password) ", con);
+                cmd.Parameters.AddWithValue("adminName", textBox4.Text);
+                cmd.Parameters.AddWithValue("password", textBox5.Text);
                 cmd.ExecuteNonQuery();
 
-                da = new SqlDataAdapter("SELECT * FROM yoneticiGirisi order by yoneticiID", con);
+                da = new SqlDataAdapter("SELECT * FROM adminLogin order by adminID", con);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
@@ -112,17 +112,17 @@ namespace restaurantAutomation
         {
             if (int.Parse(textBox6.Text)==1)
             {
-                MessageBox.Show("Ana yonetici silinemez.");
+                MessageBox.Show("The main administrator cannot be deleted.");
             }
             else
             {
-                con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                 con.Open();
-                cmd = new SqlCommand("delete from yoneticiGirisi where yoneticiID = @yoneticiID", con);
-                cmd.Parameters.AddWithValue("yoneticiID", textBox6.Text);
+                cmd = new SqlCommand("delete from adminLogin where adminID = @adminID", con);
+                cmd.Parameters.AddWithValue("adminID", textBox6.Text);
                 cmd.ExecuteNonQuery();
 
-                da = new SqlDataAdapter("SELECT * FROM yoneticiGirisi order by yoneticiID", con);
+                da = new SqlDataAdapter("SELECT * FROM adminLogin order by adminID", con);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];

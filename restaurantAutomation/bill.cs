@@ -24,103 +24,103 @@ namespace restaurantAutomation
         SqlDataReader dr;
         SqlDataAdapter da;
 
-        int hafiza;
+        int memory;
 
         private void button2_Click(object sender, EventArgs e)
         {
-            mainScreen anaEkran = new mainScreen();
-            anaEkran.Show();
+            mainScreen mainScreen = new mainScreen();
+            mainScreen.Show();
             this.Hide();
 
-            anaEkran.comboBox1.Text = mainScreen.transferBilgi.ToString();
+            mainScreen.comboBox1.Text = mainScreen.transferİnformation.ToString();
 
-            anaEkran.comboBox1.Enabled = false;
-            anaEkran.button5.Enabled = false;
+            mainScreen.comboBox1.Enabled = false;
+            mainScreen.button5.Enabled = false;
 
-            anaEkran.button2.Visible = true;
-            anaEkran.button3.Visible = true;
-            anaEkran.button4.Visible = true;
+            mainScreen.button2.Visible = true;
+            mainScreen.button3.Visible = true;
+            mainScreen.button4.Visible = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (int.Parse(textBox2.Text)>=hafiza)
+            if (int.Parse(textBox2.Text)>=memory)
             {
                     if (textBox1.Text == "")
                     {
-                        MessageBox.Show("Lütfen önce bahşiş yüzdenizi giriniz.");
+                        MessageBox.Show("Please enter your tip percentage first.");
                     }
                     else
                     {
-                        MessageBox.Show("Ödemeniz için garson yönlendirilmiştir.");
-                        mainScreen anaEkran = new mainScreen();
-                        anaEkran.Show();
+                        MessageBox.Show("A waiter has been sent for your payment.");
+                        mainScreen mainScreen = new mainScreen();
+                        mainScreen.Show();
                         this.Hide();
 
-                        anaEkran.comboBox1.Enabled = true;
-                        anaEkran.button5.Enabled = true;
+                        mainScreen.comboBox1.Enabled = true;
+                        mainScreen.button5.Enabled = true;
 
-                        anaEkran.button2.Visible = false;
-                        anaEkran.button3.Visible = false;
-                        anaEkran.button4.Visible = false;
+                        mainScreen.button2.Visible = false;
+                        mainScreen.button3.Visible = false;
+                        mainScreen.button4.Visible = false;
 
-                        con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-                        cmd = new SqlCommand("DELETE FROM siparisler WHERE masaID=@masaID", con);
-                        cmd.Parameters.AddWithValue("@masaID", int.Parse(mainScreen.transferBilgi));
+                        con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
+                        cmd = new SqlCommand("DELETE FROM orders WHERE tableID=@tableID", con);
+                        cmd.Parameters.AddWithValue("@tableID", int.Parse(mainScreen.transferİnformation));
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
 
-                        con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-                        cmd = new SqlCommand("update masalar set musaitlik = 'bos' where masaID = @masaID", con);
-                        cmd.Parameters.AddWithValue("@masaID", int.Parse(mainScreen.transferBilgi));
+                        con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
+                        cmd = new SqlCommand("update tables set availability = 'empty' where tableID = @tableID", con);
+                        cmd.Parameters.AddWithValue("@tableID", int.Parse(mainScreen.transferİnformation));
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
 
-                        orders siparisler = new orders();
-                        siparisler.dataGuncelle();
+                        orders orders = new orders();
+                        orders.dataGuncelle();
                     }
             }
            else
             {
-                MessageBox.Show("Bahşiş miktarı en az %1 olmalı..");
+                MessageBox.Show("Tip amount must be at least 1%..");
                 textBox1.Clear();
             }
         }
 
-        private void hesap_Load(object sender, EventArgs e)
+        private void bill_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
             cmd = new SqlCommand();
             cmd.Connection = con;
-            da = new SqlDataAdapter("SELECT * FROM siparisler where masaID ='" + int.Parse(mainScreen.transferBilgi) + "' order by siparisID", con);
+            da = new SqlDataAdapter("SELECT * FROM orders where tableID ='" + int.Parse(mainScreen.transferİnformation) + "' order by orderID", con);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
 
 
-            cmd = new SqlCommand("SELECT hesap FROM masalar where masaID ='" + int.Parse(mainScreen.transferBilgi) + "'", con);
+            cmd = new SqlCommand("SELECT bill FROM tables where tableID ='" + int.Parse(mainScreen.transferİnformation) + "'", con);
             con.Open();
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                textBox2.Text = dr["hesap"].ToString();
+                textBox2.Text = dr["bill"].ToString();
             }
             con.Close();
 
-            hafiza = int.Parse(textBox2.Text);
+            memory = int.Parse(textBox2.Text);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                textBox2.Text = (((int.Parse(textBox1.Text) * hafiza) / 100) + hafiza).ToString();
+                textBox2.Text = (((int.Parse(textBox1.Text) * memory) / 100) + memory).ToString();
             }
             catch 
             {
-                textBox2.Text = hafiza.ToString();
+                textBox2.Text = memory.ToString();
             }
             
         }

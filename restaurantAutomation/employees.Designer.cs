@@ -82,7 +82,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(137, 23);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Calisani Cikar";
+            this.button1.Text = "Dismiss the employee";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -92,7 +92,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(134, 24);
             this.button3.TabIndex = 10;
-            this.button3.Text = "Calisani İse Al";
+            this.button3.Text = "Hire employee";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -176,7 +176,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 16);
             this.label3.TabIndex = 25;
-            this.label3.Text = "Numara :";
+            this.label3.Text = "Number :";
             // 
             // label4
             // 
@@ -185,7 +185,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 26;
-            this.label4.Text = "TC No :";
+            this.label4.Text = "ID number :";
             // 
             // label5
             // 
@@ -194,7 +194,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 16);
             this.label5.TabIndex = 27;
-            this.label5.Text = "Adres :";
+            this.label5.Text = "Address :";
             // 
             // label6
             // 
@@ -203,7 +203,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 16);
             this.label6.TabIndex = 28;
-            this.label6.Text = "Maasi :";
+            this.label6.Text = "Salary :";
             // 
             // label7
             // 
@@ -212,7 +212,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 16);
             this.label7.TabIndex = 29;
-            this.label7.Text = "Mevkisi :";
+            this.label7.Text = "Position :";
             // 
             // label8
             // 
@@ -221,7 +221,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 16);
             this.label8.TabIndex = 30;
-            this.label8.Text = "CalisanID :";
+            this.label8.Text = "Employee ID :";
             // 
             // textBox1
             // 
@@ -272,10 +272,10 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "calisanlar";
+            this.Name = "employees";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "calisanlar";
-            this.Load += new System.EventHandler(this.calisanlar_Load);
+            this.Text = "employees";
+            this.Load += new System.EventHandler(this.employees_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

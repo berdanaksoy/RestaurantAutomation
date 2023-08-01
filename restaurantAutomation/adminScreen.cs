@@ -36,29 +36,29 @@ namespace restaurantAutomation
 
         private void button3_Click(object sender, EventArgs e)
         {
-            employees calisanlar = new employees();
-            calisanlar.Show();
+            employees employees = new employees();
+            employees.Show();
             this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            orders siparisler = new orders();
-            siparisler.Show();
+            orders orders = new orders();
+            orders.Show();
             this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            adminEditScreen yoneticiDuzenlemeEkrani = new adminEditScreen();
-            yoneticiDuzenlemeEkrani.Show();
+            adminEditScreen adminEditScreen = new adminEditScreen();
+            adminEditScreen.Show();
             this.Hide();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            menuEditScreen menuDuzenlemeEkrani = new menuEditScreen();
-            menuDuzenlemeEkrani.Show();
+            menuEditScreen menuEditScreen = new menuEditScreen();
+            menuEditScreen.Show();
             this.Hide();
         }
     }

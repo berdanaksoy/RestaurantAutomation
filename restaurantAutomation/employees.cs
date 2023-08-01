@@ -24,11 +24,11 @@ namespace restaurantAutomation
         SqlDataReader dr;
         SqlDataAdapter da;
 
-        private void calisanlar_Load(object sender, EventArgs e)
+        private void employees_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
             con.Open();
-            da = new SqlDataAdapter("SELECT * FROM calisanlar order by calisanID", con);
+            da = new SqlDataAdapter("SELECT * FROM employees order by employeeID", con);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
@@ -37,20 +37,20 @@ namespace restaurantAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            adminScreen yoneticiEkrani = new adminScreen();
-            yoneticiEkrani.Show();
+            adminScreen adminScreen = new adminScreen();
+            adminScreen.Show();
             this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
             con.Open();
-            cmd = new SqlCommand("DELETE FROM calisanlar WHERE calisanID=@calisanID", con);
-            cmd.Parameters.AddWithValue("calisanID",textBox1.Text);
+            cmd = new SqlCommand("DELETE FROM employees WHERE employeeID=@employeeID", con);
+            cmd.Parameters.AddWithValue("employeeID",textBox1.Text);
             cmd.ExecuteNonQuery();
 
-            da = new SqlDataAdapter("SELECT * FROM calisanlar order by calisanID", con);
+            da = new SqlDataAdapter("SELECT * FROM employees order by employeeID", con);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
@@ -59,35 +59,35 @@ namespace restaurantAutomation
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int sayac = 0;
+            int counter = 0;
             string text = textBox5.Text;
             foreach (char txt in text)
             {
-                sayac++;
+                counter++;
             }
 
-            int sayac2 = 0;
+            int counter2 = 0;
             string text2 = textBox6.Text;
             foreach (char txt in text)
             {
-                sayac2++;
+                counter2++;
             }
 
-            if (sayac==11 && sayac2==11)
+            if (counter==11 && counter2==11)
             {
-                con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                 con.Open();
-                cmd = new SqlCommand("Insert into calisanlar (adi,soyadi,numara,tcNo,adres,maasi,mevkisi) values (@adi,@soyadi,@numara,@tcNo,@adres,@maasi,@mevkisi)", con);
-                cmd.Parameters.AddWithValue("adi", textBox3.Text);
-                cmd.Parameters.AddWithValue("soyadi", textBox4.Text);
-                cmd.Parameters.AddWithValue("numara", textBox5.Text);
-                cmd.Parameters.AddWithValue("tcNo", textBox6.Text);
-                cmd.Parameters.AddWithValue("adres", textBox7.Text);
-                cmd.Parameters.AddWithValue("maasi", int.Parse(textBox8.Text));
-                cmd.Parameters.AddWithValue("mevkisi", textBox9.Text);
+                cmd = new SqlCommand("Insert into employees (name,surname,number,ID_number,address,salary,position) values (@name,@surname,@number,@ID_number,@address,@salary,@position)", con);
+                cmd.Parameters.AddWithValue("name", textBox3.Text);
+                cmd.Parameters.AddWithValue("surname", textBox4.Text);
+                cmd.Parameters.AddWithValue("number", textBox5.Text);
+                cmd.Parameters.AddWithValue("ID_number", textBox6.Text);
+                cmd.Parameters.AddWithValue("address", textBox7.Text);
+                cmd.Parameters.AddWithValue("salary", int.Parse(textBox8.Text));
+                cmd.Parameters.AddWithValue("position", textBox9.Text);
                 cmd.ExecuteNonQuery();
 
-                da = new SqlDataAdapter("SELECT * FROM calisanlar order by calisanID", con);
+                da = new SqlDataAdapter("SELECT * FROM employees order by employeeID", con);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
@@ -95,7 +95,7 @@ namespace restaurantAutomation
             }
             else
             {
-                MessageBox.Show("TcNo ve numara 11 haneli olmalı.");
+                MessageBox.Show("ID_number and number must be 11 digits.");
             }
         }
 

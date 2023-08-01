@@ -79,7 +79,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 36);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Siparis Ver";
+            this.button1.Text = "Order now";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -98,7 +98,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 16);
             this.label1.TabIndex = 9;
-            this.label1.Text = "UrunID :";
+            this.label1.Text = "ProductID :";
             // 
             // menu
             // 

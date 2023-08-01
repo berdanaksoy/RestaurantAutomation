@@ -74,7 +74,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(200, 200);
             this.button3.TabIndex = 8;
-            this.button3.Text = "Calisanlar";
+            this.button3.Text = "Employees";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -87,7 +87,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(200, 200);
             this.button4.TabIndex = 9;
-            this.button4.Text = "Siparisler";
+            this.button4.Text = "Orders";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -100,7 +100,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(200, 200);
             this.button5.TabIndex = 10;
-            this.button5.Text = "Yonetici Duzenleme";
+            this.button5.Text = "Edit admin";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -115,11 +115,11 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(200, 200);
             this.button6.TabIndex = 11;
-            this.button6.Text = "Menu Duzenleme";
+            this.button6.Text = "Edit menu";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // yoneticiEkrani
+            // adminScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,9 +133,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "yoneticiEkrani";
+            this.Name = "adminScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "yoneticiEkrani";
+            this.Text = "adminScreen";
             this.ResumeLayout(false);
 
         }

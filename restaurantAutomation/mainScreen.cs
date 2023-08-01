@@ -23,7 +23,7 @@ namespace restaurantAutomation
         SqlCommand cmd;
         SqlDataReader dr;
 
-        public static string transferBilgi;
+        public static string transferİnformation;
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -34,15 +34,15 @@ namespace restaurantAutomation
 
         private void button4_Click(object sender, EventArgs e)
         {
-            bill hesap = new bill();
-            hesap.Show();
+            bill bill = new bill();
+            bill.Show();
             this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            order siparis = new order();
-            siparis.Show();
+            order order = new order();
+            order.Show();
             this.Hide();
         }
 
@@ -63,10 +63,10 @@ namespace restaurantAutomation
             button3.Visible = true;
             button4.Visible = true;
 
-            string sorgu = "update masalar set musaitlik = 'dolu' where masaID = @masaID";
-            transferBilgi = comboBox1.Text;
-            cmd = new SqlCommand(sorgu, con);
-            cmd.Parameters.AddWithValue("@masaID", comboBox1.SelectedItem);
+            string query = "update tables set availability = 'full' where tableID = @tableID";
+            transferİnformation = comboBox1.Text;
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@tableID", comboBox1.SelectedItem);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
@@ -86,15 +86,15 @@ namespace restaurantAutomation
 
         private void anaEkran_Shown(object sender, EventArgs e)
         {
-            string sorgu = "SELECT * FROM masalar where musaitlik=@musaitlik";
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
-            cmd = new SqlCommand(sorgu, con);
-            cmd.Parameters.AddWithValue("@musaitlik", "bos");
+            string query = "SELECT * FROM tables where availability=@availability";
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@availability", "empty");
             con.Open();
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                comboBox1.Items.Add(dr["masaID"]);
+                comboBox1.Items.Add(dr["tableID"]);
             }
             con.Close();
 

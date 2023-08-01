@@ -58,7 +58,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Sifre :";
+            this.label2.Text = "Password :";
             // 
             // label1
             // 
@@ -67,7 +67,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 24);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Yonetici Adi :";
+            this.label1.Text = "Admin name :";
             // 
             // button3
             // 
@@ -76,7 +76,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(93, 33);
             this.button3.TabIndex = 11;
-            this.button3.Text = "Giris Yap";
+            this.button3.Text = "Log in";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -95,7 +95,7 @@
             this.textBox1.Size = new System.Drawing.Size(269, 22);
             this.textBox1.TabIndex = 9;
             // 
-            // yoneticiGirisEkranı
+            // adminLoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -109,9 +109,9 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "yoneticiGirisEkranı";
+            this.Name = "adminLoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "yoneticiEkranı";
+            this.Text = "adminScreen";
             this.ResumeLayout(false);
             this.PerformLayout();
 

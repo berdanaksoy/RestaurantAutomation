@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace VTDGP_donem_projesi_berdanaksoy
+namespace restaurantAutomation
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace VTDGP_donem_projesi_berdanaksoy
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new anaEkran());
+            Application.Run(new mainScreen());
         }
     }
 }

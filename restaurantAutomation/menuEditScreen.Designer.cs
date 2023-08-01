@@ -73,7 +73,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(118, 23);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Menuden Sil";
+            this.button1.Text = "Delete from menu";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -84,7 +84,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 16);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Siparis Adi :";
+            this.label1.Text = "Order Name :";
             // 
             // label2
             // 
@@ -93,7 +93,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 16);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Fiyati :";
+            this.label2.Text = "Price :";
             // 
             // label3
             // 
@@ -102,7 +102,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 16);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Urun Tipi :";
+            this.label3.Text = "Product Type :";
             // 
             // textBox1
             // 
@@ -134,7 +134,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(120, 23);
             this.button3.TabIndex = 14;
-            this.button3.Text = "Menuye Ekle";
+            this.button3.Text = "Add to menu";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -153,9 +153,9 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 16);
             this.label4.TabIndex = 16;
-            this.label4.Text = "UrunID";
+            this.label4.Text = "ProductID";
             // 
-            // menuDuzenlemeEkrani
+            // menuEditScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -175,10 +175,10 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "menuDuzenlemeEkrani";
+            this.Name = "menuEditScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "menuDuzenlemeEkrani";
-            this.Load += new System.EventHandler(this.menuDuzenlemeEkrani_Load);
+            this.Text = "menuEditScreen";
+            this.Load += new System.EventHandler(this.menuEditScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

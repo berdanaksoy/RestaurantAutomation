@@ -25,11 +25,11 @@ namespace restaurantAutomation
         SqlDataReader dr;
         SqlDataAdapter da;
 
-        public void dataGuncelle()
+        public void updateData()
         {
-            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+            con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
             con.Open();
-            da = new SqlDataAdapter("SELECT * FROM menu order by urunTipi", con);
+            da = new SqlDataAdapter("SELECT * FROM menu order by productType", con);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
@@ -39,69 +39,69 @@ namespace restaurantAutomation
         private void button2_Click(object sender, EventArgs e)
         {
 
-            mainScreen anaEkran = new mainScreen();
-            anaEkran.Show();
+            mainScreen mainScreen = new mainScreen();
+            mainScreen.Show();
             this.Hide();
 
-            anaEkran.comboBox1.Text = mainScreen.transferBilgi.ToString();
+            mainScreen.comboBox1.Text = mainScreen.transferİnformation.ToString();
 
-            anaEkran.comboBox1.Enabled = false;
-            anaEkran.button5.Enabled = false;
+            mainScreen.comboBox1.Enabled = false;
+            mainScreen.button5.Enabled = false;
 
-            anaEkran.button2.Visible = true;
-            anaEkran.button3.Visible = true;
-            anaEkran.button4.Visible = true;
+            mainScreen.button2.Visible = true;
+            mainScreen.button3.Visible = true;
+            mainScreen.button4.Visible = true;
         }
 
         private void menu_Load(object sender, EventArgs e)
         {
-            dataGuncelle();
+            updateData();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "")
             {
-                con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                 con.Open();
-                cmd = new SqlCommand("SELECT urunID FROM menu", con);
+                cmd = new SqlCommand("SELECT productID FROM menu", con);
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                     con.Open();
-                    cmd = new SqlCommand("update masalar set hesap=hesap+(select fiyati from menu where urunID=@urunID) where masaID=@masaID", con);
-                    cmd.Parameters.AddWithValue("masaID", int.Parse(mainScreen.transferBilgi));
-                    cmd.Parameters.AddWithValue("urunID", int.Parse(textBox1.Text));
+                    cmd = new SqlCommand("update tables set bill=bill+(select fiyati from menu where productID=@productID) where tableID=@tableID", con);
+                    cmd.Parameters.AddWithValue("tableID", int.Parse(mainScreen.transferİnformation));
+                    cmd.Parameters.AddWithValue("productID", int.Parse(textBox1.Text));
                     cmd.ExecuteNonQuery();
                     con.Close();
 
-                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                     con.Open();
-                    cmd = new SqlCommand("Insert into siparisler(masaID, siparisi, fiyati, siparisDurumu) values(@masaID, (select siparisAdi from menu where urunID = @urunID), (select fiyati from menu where urunID = @urunID),'sirada')", con);
-                    cmd.Parameters.AddWithValue("masaID", int.Parse(mainScreen.transferBilgi));
-                    cmd.Parameters.AddWithValue("urunID", int.Parse(textBox1.Text));
+                    cmd = new SqlCommand("Insert into orders(tableID, order, price, orderStatus) values(@tableID, (select orderName from menu where productID = @productID), (select price from menu where productID = @productID),'in order')", con);
+                    cmd.Parameters.AddWithValue("tableID", int.Parse(mainScreen.transferİnformation));
+                    cmd.Parameters.AddWithValue("productID", int.Parse(textBox1.Text));
                     cmd.ExecuteNonQuery();
                     con.Close();
 
-                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=VTDGP Proje Restaurant;Integrated Security=SSPI");
+                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                     con.Open();
                     SqlCommand cmd2 = new SqlCommand();
                     cmd2.Connection = con;
-                    da = new SqlDataAdapter("SELECT * FROM siparisler where masaID ='" + int.Parse(mainScreen.transferBilgi) + "' order by siparisID", con);
+                    da = new SqlDataAdapter("SELECT * FROM orders where tableID ='" + int.Parse(mainScreen.transferİnformation) + "' order by orderID", con);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
                     dataGridView2.DataSource = ds.Tables[0];
                     con.Close();
 
-                    orders siparisler = new orders();
-                    siparisler.dataGuncelle();
+                    orders orders = new orders();
+                    orders.updateData();
                 }
                 con.Close();
             }
             else
             {
-                MessageBox.Show("UrunID bos birakilamaz.");
+                MessageBox.Show("productID cannot be left blank.");
             }
         }
 

@@ -99,7 +99,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 16);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Yonetici Adi :";
+            this.label1.Text = "Admin name :";
             // 
             // label2
             // 
@@ -108,7 +108,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Sifre :";
+            this.label2.Text = "Password :";
             // 
             // label3
             // 
@@ -117,7 +117,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 16);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Yeni Sifre :";
+            this.label3.Text = "New password :";
             // 
             // textBox3
             // 
@@ -133,7 +133,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(105, 23);
             this.button3.TabIndex = 16;
-            this.button3.Text = "Sifre Degistir";
+            this.button3.Text = "Change password";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -143,7 +143,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(109, 23);
             this.button4.TabIndex = 17;
-            this.button4.Text = "Yonetici Ekle";
+            this.button4.Text = "Add admin";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -169,7 +169,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 16);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Yonetici Adi :";
+            this.label4.Text = "Admin name :";
             // 
             // label5
             // 
@@ -178,7 +178,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 16);
             this.label5.TabIndex = 21;
-            this.label5.Text = "Sifre :";
+            this.label5.Text = "Password :";
             // 
             // dataGridView1
             // 
@@ -224,7 +224,7 @@
             this.textBox7.Size = new System.Drawing.Size(105, 22);
             this.textBox7.TabIndex = 26;
             // 
-            // yoneticiDuzenlemeEkrani
+            // adminEditScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -251,10 +251,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "yoneticiDuzenlemeEkrani";
+            this.Name = "adminEditScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "yoneticiDuzenlemeEkrani";
-            this.Load += new System.EventHandler(this.yoneticiDuzenlemeEkrani_Load);
+            this.Text = "adminEditScreen";
+            this.Load += new System.EventHandler(this.adminEditScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

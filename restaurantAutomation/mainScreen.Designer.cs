@@ -47,7 +47,7 @@
             this.linkLabel1.Size = new System.Drawing.Size(88, 16);
             this.linkLabel1.TabIndex = 1;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Yonetici Girisi";
+            this.linkLabel1.Text = "Admin Login";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label3
@@ -59,7 +59,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(962, 74);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Aksoy Restauranta Hosgeldiniz ";
+            this.label3.Text = "Welcome the Aksoy Restaurant ";
             // 
             // button2
             // 
@@ -73,7 +73,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(200, 200);
             this.button2.TabIndex = 8;
-            this.button2.Text = "Menu/Siparis";
+            this.button2.Text = "Menu/Order";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -90,7 +90,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(200, 200);
             this.button3.TabIndex = 9;
-            this.button3.Text = "Siparis Durumu";
+            this.button3.Text = "Order Status";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -107,7 +107,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(200, 200);
             this.button4.TabIndex = 10;
-            this.button4.Text = "Hesap";
+            this.button4.Text = "Bill";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Visible = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -119,7 +119,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 24);
             this.button5.TabIndex = 11;
-            this.button5.Text = "Onayla";
+            this.button5.Text = "Approve";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -131,10 +131,10 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(211, 24);
             this.comboBox1.TabIndex = 12;
-            this.comboBox1.Text = "Masanizi Numaranizi Seciniz";
+            this.comboBox1.Text = "Select your table number";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // anaEkran
+            // mainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,9 +149,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.linkLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "anaEkran";
+            this.Name = "mainScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "mainScreen";
             this.Shown += new System.EventHandler(this.anaEkran_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();

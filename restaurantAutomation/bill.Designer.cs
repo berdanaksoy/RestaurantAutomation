@@ -78,7 +78,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 16);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Bahşiş Yüzdenizi Giriniz :";
+            this.label1.Text = "Enter your tip percentage :";
             // 
             // label2
             // 
@@ -87,7 +87,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 16);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Toplam Tutar  :";
+            this.label2.Text = "Total Amount  :";
             // 
             // textBox2
             // 
@@ -103,7 +103,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 30);
             this.button1.TabIndex = 12;
-            this.button1.Text = "Ödeme Yap";
+            this.button1.Text = "Make a payment";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -122,10 +122,10 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "hesap";
+            this.Name = "bill";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "hesap";
-            this.Load += new System.EventHandler(this.hesap_Load);
+            this.Text = "bill";
+            this.Load += new System.EventHandler(this.bill_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
