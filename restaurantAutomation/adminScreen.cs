@@ -1,4 +1,5 @@
-﻿using System;
+﻿using restaurantAutomation.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,15 +18,9 @@ namespace restaurantAutomation
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            adminLoginScreen adminLoginScreen = new adminLoginScreen();
-            adminLoginScreen.Show();
+            PageSwitching.openAdminLoginScreen();
             this.Hide();
         }
 
@@ -36,29 +31,31 @@ namespace restaurantAutomation
 
         private void button3_Click(object sender, EventArgs e)
         {
-            employees employees = new employees();
-            employees.Show();
+            PageSwitching.openEmployees();
             this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            orders orders = new orders();
-            orders.Show();
+            PageSwitching.openOrders();
             this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            adminEditScreen adminEditScreen = new adminEditScreen();
-            adminEditScreen.Show();
+            PageSwitching.openExamineTheTable();
             this.Hide();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            menuEditScreen menuEditScreen = new menuEditScreen();
-            menuEditScreen.Show();
+            PageSwitching.openMenuEditScreen();
+            this.Hide();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PageSwitching.openAdminEditScreen();
             this.Hide();
         }
     }

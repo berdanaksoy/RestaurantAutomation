@@ -1,4 +1,5 @@
-﻿using System;
+﻿using restaurantAutomation.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,29 +28,25 @@ namespace restaurantAutomation
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            adminLoginScreen adminLoginScreen = new adminLoginScreen();
-            adminLoginScreen.Show();
+            PageSwitching.openAdminLoginScreen();
             this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            bill bill = new bill();
-            bill.Show();
+            PageSwitching.openBill();
             this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            order order = new order();
-            order.Show();
+            PageSwitching.openOrder();
             this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            menu menu = new menu();
-            menu.Show();
+            PageSwitching.openMenu();
             this.Hide();
         }
 
@@ -62,6 +59,8 @@ namespace restaurantAutomation
             button2.Visible = true;
             button3.Visible = true;
             button4.Visible = true;
+
+            linkLabel1.Enabled = false;
 
             string query = "update tables set availability = 'full' where tableID = @tableID";
             transferİnformation = comboBox1.Text;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using restaurantAutomation.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,18 +40,8 @@ namespace restaurantAutomation
         private void button2_Click(object sender, EventArgs e)
         {
 
-            mainScreen mainScreen = new mainScreen();
-            mainScreen.Show();
+            PageSwitching.openMainScreen(false,false,true,true,true);
             this.Hide();
-
-            mainScreen.comboBox1.Text = mainScreen.transferİnformation.ToString();
-
-            mainScreen.comboBox1.Enabled = false;
-            mainScreen.button5.Enabled = false;
-
-            mainScreen.button2.Visible = true;
-            mainScreen.button3.Visible = true;
-            mainScreen.button4.Visible = true;
         }
 
         private void menu_Load(object sender, EventArgs e)
@@ -70,7 +61,7 @@ namespace restaurantAutomation
                 {
                     con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                     con.Open();
-                    cmd = new SqlCommand("update tables set bill=bill+(select fiyati from menu where productID=@productID) where tableID=@tableID", con);
+                    cmd = new SqlCommand("update tables set bill=bill+(select price from menu where productID=@productID) where tableID=@tableID", con);
                     cmd.Parameters.AddWithValue("tableID", int.Parse(mainScreen.transferİnformation));
                     cmd.Parameters.AddWithValue("productID", int.Parse(textBox1.Text));
                     cmd.ExecuteNonQuery();
@@ -78,7 +69,7 @@ namespace restaurantAutomation
 
                     con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                     con.Open();
-                    cmd = new SqlCommand("Insert into orders(tableID, order, price, orderStatus) values(@tableID, (select orderName from menu where productID = @productID), (select price from menu where productID = @productID),'in order')", con);
+                    cmd = new SqlCommand("Insert into orders(tableID, [order], price, orderStatus) values(@tableID, (select orderName from menu where productID = @productID), (select price from menu where productID = @productID),'in order')", con);
                     cmd.Parameters.AddWithValue("tableID", int.Parse(mainScreen.transferİnformation));
                     cmd.Parameters.AddWithValue("productID", int.Parse(textBox1.Text));
                     cmd.ExecuteNonQuery();
@@ -88,7 +79,7 @@ namespace restaurantAutomation
                     con.Open();
                     SqlCommand cmd2 = new SqlCommand();
                     cmd2.Connection = con;
-                    da = new SqlDataAdapter("SELECT * FROM orders where tableID ='" + int.Parse(mainScreen.transferİnformation) + "' order by orderID", con);
+                    da = new SqlDataAdapter("SELECT * FROM orders where tableID ='" + int.Parse(mainScreen.transferİnformation) + "'", con);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
                     dataGridView2.DataSource = ds.Tables[0];

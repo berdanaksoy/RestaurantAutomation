@@ -61,6 +61,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\PageSwitching.cs" />
+    <Compile Include="examineTheTables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="examineTheTables.Designer.cs">
+      <DependentUpon>examineTheTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +130,9 @@
     <Compile Include="adminLoginScreen.Designer.cs">
       <DependentUpon>adminLoginScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="examineTheTables.resx">
+      <DependentUpon>examineTheTables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mainScreen.resx">
       <DependentUpon>mainScreen.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using restaurantAutomation.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,18 +29,8 @@ namespace restaurantAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            mainScreen mainScreen = new mainScreen();
-            mainScreen.Show();
+            PageSwitching.openMainScreen(false,false,true,true,true);
             this.Hide();
-
-            mainScreen.comboBox1.Text = mainScreen.transferİnformation.ToString();
-
-            mainScreen.comboBox1.Enabled = false;
-            mainScreen.button5.Enabled = false;
-
-            mainScreen.button2.Visible = true;
-            mainScreen.button3.Visible = true;
-            mainScreen.button4.Visible = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,16 +44,8 @@ namespace restaurantAutomation
                     else
                     {
                         MessageBox.Show("A waiter has been sent for your payment.");
-                        mainScreen mainScreen = new mainScreen();
-                        mainScreen.Show();
+                        PageSwitching.openMainScreen(true,true,false,false,false);
                         this.Hide();
-
-                        mainScreen.comboBox1.Enabled = true;
-                        mainScreen.button5.Enabled = true;
-
-                        mainScreen.button2.Visible = false;
-                        mainScreen.button3.Visible = false;
-                        mainScreen.button4.Visible = false;
 
                         con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                         cmd = new SqlCommand("DELETE FROM orders WHERE tableID=@tableID", con);
@@ -73,6 +56,13 @@ namespace restaurantAutomation
 
                         con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
                         cmd = new SqlCommand("update tables set availability = 'empty' where tableID = @tableID", con);
+                        cmd.Parameters.AddWithValue("@tableID", int.Parse(mainScreen.transferİnformation));
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        
+                        con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
+                        cmd = new SqlCommand("update tables set bill = 0 where tableID = @tableID", con);
                         cmd.Parameters.AddWithValue("@tableID", int.Parse(mainScreen.transferİnformation));
                         con.Open();
                         cmd.ExecuteNonQuery();

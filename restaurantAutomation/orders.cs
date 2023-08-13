@@ -1,4 +1,5 @@
-﻿using System;
+﻿using restaurantAutomation.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,8 +45,7 @@ namespace restaurantAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            adminScreen adminScreen = new adminScreen();
-            adminScreen.Show();
+            PageSwitching.openAdminScreen();
             this.Hide();
         }
 

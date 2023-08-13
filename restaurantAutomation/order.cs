@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using restaurantAutomation;
+using restaurantAutomation.Classes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace restaurantAutomation
@@ -40,18 +41,8 @@ namespace restaurantAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            mainScreen mainScreen = new mainScreen();
-            mainScreen.Show();
+            PageSwitching.openMainScreen(false,false,true,true,true);
             this.Hide();
-
-            mainScreen.comboBox1.Text = mainScreen.transferİnformation.ToString();
-
-            mainScreen.comboBox1.Enabled = false;
-            mainScreen.button5.Enabled = false;
-
-            mainScreen.button2.Visible = true;
-            mainScreen.button3.Visible = true;
-            mainScreen.button4.Visible = true;
         }
 
         private void order_Load(object sender, EventArgs e)
@@ -68,7 +59,7 @@ namespace restaurantAutomation
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                if (dr["orderStatus"].ToString()=="order in line")
+                if (dr["orderStatus"].ToString()=="in order")
                 {
                     con.Close();
                     con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
@@ -76,6 +67,21 @@ namespace restaurantAutomation
                     SqlCommand cmd2 = new SqlCommand("DELETE FROM orders WHERE orderID=@orderID", con);
                     cmd2.Parameters.AddWithValue("orderID", int.Parse(textBox1.Text));
                     cmd2.ExecuteNonQuery();
+                    con.Close();
+
+                    int priceMemory;
+                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
+                    con.Open();
+                    SqlCommand cmd4 = new SqlCommand("select price from orders where orderID=@orderID", con);
+                    cmd4.Parameters.AddWithValue("orderID", int.Parse(textBox1.Text));
+                    priceMemory = cmd4.ExecuteNonQuery();
+                    con.Close();
+
+                    con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
+                    con.Open();
+                    SqlCommand cmd3 = new SqlCommand("update tables set bill=bill- "+priceMemory+" where tableID=@tableID",con);
+                    cmd3.Parameters.AddWithValue("tableID", int.Parse(mainScreen.transferİnformation));
+                    cmd3.ExecuteNonQuery();
                     con.Close();
 
                     updateData();
