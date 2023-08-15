@@ -62,10 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\PageSwitching.cs" />
-    <Compile Include="examineTheTables.cs">
+    <Compile Include="Classes\SQLoperations.cs" />
+    <Compile Include="AdminForms\examineTheTables.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="examineTheTables.Designer.cs">
+    <Compile Include="AdminForms\examineTheTables.Designer.cs">
       <DependentUpon>examineTheTables.cs</DependentUpon>
     </Compile>
     <Compile Include="mainScreen.cs">
@@ -74,78 +75,78 @@
     <Compile Include="mainScreen.Designer.cs">
       <DependentUpon>mainScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="employees.cs">
+    <Compile Include="AdminForms\employees.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="employees.Designer.cs">
+    <Compile Include="AdminForms\employees.Designer.cs">
       <DependentUpon>employees.cs</DependentUpon>
     </Compile>
-    <Compile Include="bill.cs">
+    <Compile Include="CustomerForms\bill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="bill.Designer.cs">
+    <Compile Include="CustomerForms\bill.Designer.cs">
       <DependentUpon>bill.cs</DependentUpon>
     </Compile>
-    <Compile Include="menu.cs">
+    <Compile Include="CustomerForms\menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="menu.Designer.cs">
+    <Compile Include="CustomerForms\menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="menuEditScreen.cs">
+    <Compile Include="AdminForms\menuEditScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="menuEditScreen.Designer.cs">
+    <Compile Include="AdminForms\menuEditScreen.Designer.cs">
       <DependentUpon>menuEditScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="order.cs">
+    <Compile Include="CustomerForms\order.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="order.Designer.cs">
+    <Compile Include="CustomerForms\order.Designer.cs">
       <DependentUpon>order.cs</DependentUpon>
     </Compile>
-    <Compile Include="orders.cs">
+    <Compile Include="AdminForms\orders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="orders.Designer.cs">
+    <Compile Include="AdminForms\orders.Designer.cs">
       <DependentUpon>orders.cs</DependentUpon>
     </Compile>
-    <Compile Include="adminEditScreen.cs">
+    <Compile Include="AdminForms\adminEditScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="adminEditScreen.Designer.cs">
+    <Compile Include="AdminForms\adminEditScreen.Designer.cs">
       <DependentUpon>adminEditScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="adminScreen.cs">
+    <Compile Include="AdminForms\adminScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="adminScreen.Designer.cs">
+    <Compile Include="AdminForms\adminScreen.Designer.cs">
       <DependentUpon>adminScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="adminLoginScreen.cs">
+    <Compile Include="AdminForms\adminLoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="adminLoginScreen.Designer.cs">
+    <Compile Include="AdminForms\adminLoginScreen.Designer.cs">
       <DependentUpon>adminLoginScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="examineTheTables.resx">
+    <EmbeddedResource Include="AdminForms\examineTheTables.resx">
       <DependentUpon>examineTheTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainScreen.resx">
       <DependentUpon>mainScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="employees.resx">
+    <EmbeddedResource Include="AdminForms\employees.resx">
       <DependentUpon>employees.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="bill.resx">
+    <EmbeddedResource Include="CustomerForms\bill.resx">
       <DependentUpon>bill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="menu.resx">
+    <EmbeddedResource Include="CustomerForms\menu.resx">
       <DependentUpon>menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="menuEditScreen.resx">
+    <EmbeddedResource Include="AdminForms\menuEditScreen.resx">
       <DependentUpon>menuEditScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -158,19 +159,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="order.resx">
+    <EmbeddedResource Include="CustomerForms\order.resx">
       <DependentUpon>order.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="orders.resx">
+    <EmbeddedResource Include="AdminForms\orders.resx">
       <DependentUpon>orders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="adminEditScreen.resx">
+    <EmbeddedResource Include="AdminForms\adminEditScreen.resx">
       <DependentUpon>adminEditScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="adminScreen.resx">
+    <EmbeddedResource Include="AdminForms\adminScreen.resx">
       <DependentUpon>adminScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="adminLoginScreen.resx">
+    <EmbeddedResource Include="AdminForms\adminLoginScreen.resx">
       <DependentUpon>adminLoginScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

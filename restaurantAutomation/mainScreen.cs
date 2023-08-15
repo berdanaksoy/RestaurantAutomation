@@ -28,25 +28,25 @@ namespace restaurantAutomation
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            PageSwitching.openAdminLoginScreen();
+            PageSwitching.openAdminLoginScreen(mainScreen.ActiveForm);
             this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            PageSwitching.openBill();
+            PageSwitching.openBill(mainScreen.ActiveForm);
             this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            PageSwitching.openOrder();
+            PageSwitching.openOrder(mainScreen.ActiveForm);
             this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PageSwitching.openMenu();
+            PageSwitching.openMenu(mainScreen.ActiveForm);
             this.Hide();
         }
 

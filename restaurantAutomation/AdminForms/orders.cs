@@ -45,8 +45,7 @@ namespace restaurantAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PageSwitching.openAdminScreen();
-            this.Hide();
+            PageSwitching.openAdminScreen(orders.ActiveForm);
         }
 
         private void button3_Click(object sender, EventArgs e)

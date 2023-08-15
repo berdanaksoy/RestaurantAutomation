@@ -25,7 +25,7 @@ namespace restaurantAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PageSwitching.openAdminScreen();
+            PageSwitching.openAdminScreen(examineTheTables.ActiveForm);
             this.Hide();
         }
     }

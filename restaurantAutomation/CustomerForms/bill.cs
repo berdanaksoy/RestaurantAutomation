@@ -29,7 +29,7 @@ namespace restaurantAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PageSwitching.openMainScreen(false,false,true,true,true);
+            PageSwitching.openMainScreen(false,false,true,true,true,bill.ActiveForm);
             this.Hide();
         }
 
@@ -44,7 +44,7 @@ namespace restaurantAutomation
                     else
                     {
                         MessageBox.Show("A waiter has been sent for your payment.");
-                        PageSwitching.openMainScreen(true,true,false,false,false);
+                        PageSwitching.openMainScreen(true,true,false,false,false, bill.ActiveForm);
                         this.Hide();
 
                         con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
@@ -62,8 +62,7 @@ namespace restaurantAutomation
                         con.Close();
                         
                         con = new SqlConnection("server=BERDAN\\SQLEXPRESS; Initial Catalog=restaurantAutomation;Integrated Security=SSPI");
-                        cmd = new SqlCommand("update tables set bill = 0 where tableID = @tableID", con);
-                        cmd.Parameters.AddWithValue("@tableID", int.Parse(mainScreen.transferİnformation));
+                        cmd = new SqlCommand("update tables set bill = 0 where tableID = '" + int.Parse(mainScreen.transferİnformation), con);
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();

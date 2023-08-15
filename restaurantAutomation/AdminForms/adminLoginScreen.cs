@@ -25,8 +25,7 @@ namespace restaurantAutomation
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PageSwitching.openMainScreen(true,true,false,false,false);
-            this.Hide();
+            PageSwitching.openMainScreen(true,true,false,false,false,adminLoginScreen.ActiveForm);
         }
 
 
@@ -44,12 +43,12 @@ namespace restaurantAutomation
                 string admin = textBox1.Text;
                 if (textBox1.Text=="admin2")
                 {
-                    PageSwitching.openAdminScreen();
+                    PageSwitching.openAdminScreen(adminLoginScreen.ActiveForm);
                     this.Hide();
                 }
                 else  
                 {
-                    PageSwitching.openAdminScreen(false,false);
+                    PageSwitching.openAdminScreen(false,false, adminLoginScreen.ActiveForm);
                     this.Hide();
                 }
                 
